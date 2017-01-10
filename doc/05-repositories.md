@@ -603,7 +603,10 @@ Then, to add the package `my/package` as a dependency, in your
 ```
 
 If the package is a local VCS repository, the version may be inferred by
-the branch or tag that is currently checked out. Otherwise, the version should
+the branch or tag that is *currently checked out*, and not just available in the repository history.
+For example, if using `git`, a `git checkout [tag]` is required, putting the repository in `detached HEAD` mode.
+Check [here](https://github.com/composer/composer/issues/5431#issuecomment-225890779) for an example usage.
+Otherwise, the version should
 be explicitly defined in the package's `composer.json` file. If the version
 cannot be resolved by these means, it is assumed to be `dev-master`.
 
